@@ -93,6 +93,7 @@ public class DiagnosisMangerScript : MonoBehaviour
     public void CameraZoomToBite()
     {
         StartCoroutine(SwitchToFocusCamera());
+        biteInspectionText.SetActive(false);
     }
 
     IEnumerator SwitchToFocusCamera()

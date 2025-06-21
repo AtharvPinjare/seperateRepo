@@ -48,7 +48,8 @@ public class InjectionSocketHandler : MonoBehaviour
             if (renderer.material.color == new Color(1f,0,0))
             {
                 Debug.Log("Injection inserted into Socket 2");
-                reportText.text += "Clotting Profile (PT/INR, aPTT): Prolonged\n Fibrinogen: Low\n D-dimer: Elevated\n Complete Blood Count: Leukocytocytosis(WBC), mild thrombocytopenia\n Creatine Kinase (CK): Elevated\n Liver Function Tests (LFT): Mild elevations(AST/ALT)\n Renal Function (Creatinine, BUN): Elevated \nArterial Blood Gas (ABG): Respiratory acidosis/hypoxia\n";
+                reportText.text += "Clotting Profile (PT/INR, aPTT): Prolonged\n Fibrinogen: Low\n D-dimer: Elevated\n Complete Blood Count: " +
+                    "Leukocytocytosis(WBC), mild thrombocytopenia\n";
             }
         }
     }
