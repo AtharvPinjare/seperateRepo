@@ -32,9 +32,9 @@ public class ColorToggleOnInjection : MonoBehaviour
 
         if (bottleRenderer != null && injectionRenderer != null)
         {
-            Color tempColor = bottleRenderer.material.color;
-            bottleRenderer.material.color = injectionRenderer.material.color;
-            injectionRenderer.material.color = tempColor;
+            //Color tempColor = bottleRenderer.material.color;
+            //bottleRenderer.material.color = injectionRenderer.material.color;
+            injectionRenderer.material.color = bottleRenderer.material.color ;
         }
     }
 

@@ -13,8 +13,9 @@ public class DiagnosisMangerScript : MonoBehaviour
     public GameObject diagnosisConfirmationUI;
     public Animator patientAnimator;
     public TMPro.TextMeshProUGUI timerText;
-    public GameObject mainCamera;
-    public Transform biteArea;
+    public GameObject focusDisplayPanel;   // Static camera looking at the bite area
+    public float focusDuration = 2f;
+    //public Transform biteArea;
 
     private float timeSinceBite = 0f;
     private bool isAntivenomGiven = false;
@@ -85,17 +86,22 @@ public class DiagnosisMangerScript : MonoBehaviour
             biteInspectionText.SetActive(true);
             // biteInspectionText.GetComponent<TMPro.TextMeshProUGUI>().text = "Fang marks detected. Slight swelling. Suggestive of Cobra bite.";
             CameraZoomToBite();
-            Invoke("ShowDiagnosisConfirmation", 2f);
+            //Invoke("ShowDiagnosisConfirmation", 2f);
             biteInspected = true;
         }
     }
-
-    void CameraZoomToBite()
+    public void CameraZoomToBite()
     {
-        Debug.Log("Camera Shifted");
-        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, biteArea.position, 0.5f);
-        mainCamera.transform.LookAt(biteArea);
+        StartCoroutine(SwitchToFocusCamera());
     }
+
+    IEnumerator SwitchToFocusCamera()
+    {
+        focusDisplayPanel.SetActive(true);  // Show the second camera's view
+        yield return new WaitForSeconds(focusDuration);
+        focusDisplayPanel.SetActive(false); // Hide it again
+    }
+
 
     void ShowDiagnosisConfirmation()
     {
